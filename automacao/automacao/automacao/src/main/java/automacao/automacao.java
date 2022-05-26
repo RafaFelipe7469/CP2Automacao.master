@@ -21,33 +21,63 @@ public class automacao {
 		
 		WebDriver driver = new ChromeDriver();
 
-        // Opening Google
-        driver.get("https://www.fiap.com.br/");
+        driver.get("https://www.amazon.com.br/");
 
-        // q its the search box name/ID
-        WebElement element = driver.findElement(By.className("components-menu-toggle is-active"));
 
-        element.sendKeys("Fiap");
+        WebElement busca = driver.findElement(By.id("twotabsearchtextbox"));
+        	
         
-        // Submit the form
-        element.submit();
-
-        // Printing the page title - just for example
-        System.out.println("Page title is: " + driver.getTitle());
+        busca.sendKeys("Playstation 5");
         
 
-       
-       // List<WebElement> findElements = driver.findElements(By.xpath("//*[@id=\"gsr\"]"));
-
-       List<WebElement> findElements = driver.findElements(By.xpath("//*[@id='rso']//h3/a"));
-
-        //Get the url of first link and navigate to it
-        String fisrt_link = findElements.get(0).getAttribute("href");
-        driver.navigate().to(fisrt_link);
-       
+        busca.submit();
         
         
+        WebElement conta = driver.findElement(By.id("nav-link-accountList"));
+        
+
+        conta.click();
+        
+        
+        WebElement criarContaBotao = driver.findElement(By.id("createAccountSubmit"));
+        
+
+        criarContaBotao.click();
+        
+        
+        WebElement name = driver.findElement(By.id("ap_customer_name"));
+        
+
+        name.sendKeys("Rafael Felipe Zamignani");
+        
+        
+        WebElement email = driver.findElement(By.id("ap_email"));
+
+        
+        email.sendKeys("CP2Compliance@gmail.com");
+        
+        
+        WebElement senha = driver.findElement(By.id("ap_password"));
+
+        
+        senha.sendKeys("SenhaSecreta");
+        
+        
+        WebElement repeteSenha = driver.findElement(By.id("ap_password_check"));
+
+        
+        repeteSenha.sendKeys("SenhaSecreta");
+        
+        
+        WebElement continuaCriarConta = driver.findElement(By.id("continue"));
+        
+        
+        continuaCriarConta.click();
+
+        
+		 //driver.quit();
       
+   
 //        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((
 //        
 		// If you want to Close the browser, uncomment this line
