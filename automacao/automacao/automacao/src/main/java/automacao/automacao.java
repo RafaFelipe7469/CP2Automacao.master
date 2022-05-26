@@ -21,33 +21,27 @@ public class automacao {
 		
 		WebDriver driver = new ChromeDriver();
 
-        // Opening Google
-        driver.get("https://www.fiap.com.br/");
+        driver.get("https://www.amazon.com.br/");
 
-        // q its the search box name/ID
-        WebElement element = driver.findElement(By.className("components-menu-toggle is-active"));
 
-        element.sendKeys("Fiap");
+        WebElement busca = driver.findElement(By.id("twotabsearchtextbox"));
+        	
         
-        // Submit the form
-        element.submit();
+        busca.sendKeys("Playstation 5");
+        
 
-        // Printing the page title - just for example
+        busca.submit();
+
+
         System.out.println("Page title is: " + driver.getTitle());
         
 
-       
-       // List<WebElement> findElements = driver.findElements(By.xpath("//*[@id=\"gsr\"]"));
-
        List<WebElement> findElements = driver.findElements(By.xpath("//*[@id='rso']//h3/a"));
 
-        //Get the url of first link and navigate to it
         String fisrt_link = findElements.get(0).getAttribute("href");
         driver.navigate().to(fisrt_link);
        
-        
-        
-      
+   
 //        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((
 //        
 		// If you want to Close the browser, uncomment this line
