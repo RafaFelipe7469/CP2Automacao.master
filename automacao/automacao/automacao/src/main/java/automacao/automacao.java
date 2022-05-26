@@ -39,6 +39,22 @@ public class automacao {
         WebElement criarContaBotao = driver.findElement(By.id("createAccountSubmit"));
 
         criarContaBotao.click();
+        
+        WebElement name = driver.findElement(By.id("ap_customer_name"));
+
+        name.sendKeys("Rafael Felipe Zamignani");
+        
+        WebElement email = driver.findElement(By.id("ap_email"));
+
+        email.sendKeys("CP2Compliance@gmail.com");
+        
+        WebElement senha = driver.findElement(By.id("ap_password"));
+
+        senha.sendKeys("SenhaSecreta");
+        
+        WebElement repeteSenha = driver.findElement(By.id("ap_password_check"));
+
+        repeteSenha.sendKeys("SenhaSecreta");
 
 
        
