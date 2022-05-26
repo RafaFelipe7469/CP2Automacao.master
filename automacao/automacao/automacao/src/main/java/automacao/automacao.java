@@ -31,15 +31,16 @@ public class automacao {
         
 
         busca.submit();
-
-
-        System.out.println("Page title is: " + driver.getTitle());
         
+        WebElement conta = driver.findElement(By.id("nav-link-accountList"));
 
-       List<WebElement> findElements = driver.findElements(By.xpath("//*[@id='rso']//h3/a"));
+        conta.click();
+        
+        WebElement criarContaBotao = driver.findElement(By.id("createAccountSubmit"));
 
-        String fisrt_link = findElements.get(0).getAttribute("href");
-        driver.navigate().to(fisrt_link);
+        criarContaBotao.click();
+
+
        
    
 //        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((
